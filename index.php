@@ -4,6 +4,11 @@ require_once 'vendor/google/apiclient/src/Google/Service/Drive.php';
 
 $client = new Google_Client();
 
+$client->setClientId('<YOUR_CLIENT_ID>');
+$client->setClientSecret('<YOUR_CLIENT_SECRET>');
+$client->setRedirectUri('<YOUR_REGISTERED_REDIRECT_URI>');
+$client->setScopes(array('https://www.googleapis.com/auth/drive.file'));
+
 $session_start();
 
 if (isset($_GET['code']) || (isset($_SESSION['access_token']) && $_SESSION['access_token'])) {
